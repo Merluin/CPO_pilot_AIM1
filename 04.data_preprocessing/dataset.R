@@ -2,7 +2,7 @@
 # 
 # Name:           Psychopy dataset
 # Programmer:     Thomas Quettier
-# Date:           18/11/2021
+# Date:           17/03/2022
 # Description:    Put together several csv files
 #
 #################################################
