@@ -16,7 +16,7 @@ library(dplyr)
 library(tidyverse)
 
 # loading data ----
-load("data/dataset.RData") 
+load("04.data_preprocessing/dataset.RData") 
 
 
 dataset
