@@ -18,7 +18,7 @@ dataset_concatenation <- function(dataset_name)
   folder_dir<-c("03.original_data/")
   
   #concatenate all file
-  dataset<-list.files(path=folder_dir, full.names = TRUE) %>%
+  dataset<-list.files(path=folder_dir, full.names = TRUE,pattern='csv') %>%
     lapply(.,function(x) read.csv(x, sep=";", header=TRUE,stringsAsFactors = FALSE ))%>%
     lapply(clean_practice)%>%
     lapply(.,stim_amplitude)%>%
