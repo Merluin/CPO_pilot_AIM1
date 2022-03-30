@@ -1,30 +1,35 @@
-#################################################
-# 
-# Name:           data exploration
-# Programmer:     Thomas Quettier
-# Date:           17/03/2022
-# Description:    load dataset
+
+###########################################################################
 #
-#################################################
+#  Experiment:  CARIPARO
+#  Programmer:  QUETTIER THOMAS
+#  Date:        03/2022
+#  Description: Generate the dataset from psychopy
+#
+#   
+###########################################################################
 
-
-
-# Library & dataset
 rm(list=ls()) # remove all objects
-# neaded packages
-library(dplyr)
+
+# Packages ----------------------------------------------------------------
+
 library(tidyverse)
+library(anytime)
+library(readr)
+library(dplyr)
+
+
+# Functions ---------------------------------------------------------------
+source("05.functions/dataset_concatenation.R")
+
 
 # loading data ----
-load("04.data_preprocessing/dataset.RData") 
+datasetname<-"dataset"
+dataset_concatenation(datasetname)
+load(paste0("04.data/",datasetname,".RData") )
 
 
-dataset
-
-
-
-
-table(dataset$file_id)
+table(dataset$subject)
 
 
 

@@ -15,7 +15,8 @@ clean_practice <- function(x){
   
   x <-x%>%
     mutate(participant = gsub( "\\D+","",participant),
-      participant = as.numeric(as.character(participant)))
+      participant = as.numeric(as.character(participant)),
+      id= paste0(experimenter,".",participant))
   
   return(x)
 

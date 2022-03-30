@@ -23,6 +23,9 @@ dataset_concatenation <- function(dataset_name)
     lapply(clean_practice)%>%
     bind_rows()
   
+  dataset<- dataset%>%
+    mutate(subject = as.numeric(as.factor(id)))
+  
   
   #write.csv2(dataset, file = "03.original_data/Pt_.csv")
   save(dataset,file=paste0("04.data/",dataset_name,".RData"))
