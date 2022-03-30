@@ -19,14 +19,10 @@ dataset_concatenation <- function(dataset_name)
   
   #concatenate all file
   dataset<-list.files(path=folder_dir, full.names = TRUE,pattern='csv') %>%
-    lapply(.,function(x) read.csv(x, sep=";", header=TRUE,stringsAsFactors = FALSE ))%>%
+    lapply(.,function(x) read.csv(x, sep=",", header=TRUE, stringsAsFactors = FALSE ))%>%
     lapply(clean_practice)%>%
-    lapply(.,stim_amplitude)%>%
-    bind_rows(.id = "id")
+    bind_rows()
   
-  # clean cells from extra characters like [] 
-  dataset$resp.keys<-str_remove_all(dataset$resp.keys, "[\\[|\\] ']")
-  dataset$resp.rt<-str_remove_all(dataset$resp.rt, "[\\[|\\] ']")
   
   #write.csv2(dataset, file = "03.original_data/Pt_.csv")
   save(dataset,file=paste0("04.data/",dataset_name,".RData"))
