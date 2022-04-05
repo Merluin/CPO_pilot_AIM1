@@ -17,6 +17,7 @@ library(tidyverse)
 library(anytime)
 library(readr)
 library(dplyr)
+library(stringr)
 
 
 # Functions ---------------------------------------------------------------
@@ -30,6 +31,8 @@ load(paste0("04.data/",datasetname,".RData") )
 
 
 table(dataset$subject)
+
+
 
 
 
