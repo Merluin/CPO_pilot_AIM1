@@ -180,21 +180,6 @@ plot%>%
   facet_grid("file_emotion" )
   
 
-plot%>%
-  filter(wheel == "wheel2")%>%
-  group_by(subject,file_emotion,resp_emotion,file_level,resp_level)%>%
-  summarise_at(vars(count),list(sum))%>%
-  group_by(file_emotion,resp_emotion,file_level,resp_level)%>%
-  summarise_at(vars(count),list(sum))%>%
-  mutate(count= ifelse(file_level == "full",count*-1,count),
-         resp_emotion= factor(resp_emotion,levels = c("neutral",
-                                                      "orgoglio","euforia","gioia","soddisfazione",
-                                                      "sollievo","speranza","interesse","sorpresa",
-                                                      "tristezza","paura","vergogna","colpa",
-                                                      "invidia","disgusto","disprezzo","rabbia")))%>%
-  ggplot()+
-  geom_bar(aes(y=count,x=resp_emotion, fill= resp_level), stat="identity",position = position_dodge2(width = 0.1, preserve = "single", padding = -0.1), alpha=0.7)+
-  facet_grid("file_emotion" )
 
 #################################################
 # 
