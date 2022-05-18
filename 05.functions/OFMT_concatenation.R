@@ -6,25 +6,23 @@
 # Description:    Put together several csv files
 #
 #################################################
-dataset_concatenation <- function(dataset_name)
+OFMT_concatenation <- function(dataset_name)
 {
   
   # packages
   library(dplyr)
   library(tidyverse)
-  source("05.functions/clean_practice.R")
   
   # find nb of file
-  folder_dir<-c("03.original_data/Pilot/")
+  folder_dir<-c("03.original_data/OFMT/")
   
   #concatenate all file
   dataset<-list.files(path=folder_dir, full.names = TRUE,pattern='csv') %>%
-    lapply(.,function(x) read.csv(x, sep=",", header=TRUE, stringsAsFactors = FALSE ))%>%
-    lapply(clean_practice)%>%
+    lapply(.,function(x) read.csv(x, sep=";", header=TRUE, stringsAsFactors = FALSE ))%>%
     bind_rows()
   
   dataset<- dataset%>%
-    mutate(subject = as.numeric(as.factor(id)))
+    mutate(subject = as.numeric(as.factor(Participant.Private.ID)))
   
   
   #write.csv2(dataset, file = "03.original_data/Pt_.csv")
