@@ -1,4 +1,4 @@
-# CPO_online_AIM1
+# CPO_pilot_AIM1
 data exploration from pilot experiment
 
 Precede your message with one or more of the following:

@@ -11,10 +11,13 @@ dataset_pilot <- function(dataset_name)
   
   # packages
   library(tidyverse)
-  source("05.functions/clean_practice.R")
+  
+  # Functions
+  
+  devtools::load_all()
   
   # find nb of file
-  folder_dir<-file.path("03.original_data","Pilot")
+  folder_dir<-file.path("original_data")
   
   #concatenate all file
   dataset<-list.files(path=folder_dir, full.names = TRUE,pattern='csv') %>%
@@ -84,9 +87,9 @@ data <- rbind(Pct,Gw1, Gw2)%>%
            Wheel.rt = str_remove_all(Wheel.rt, "[\\[|\\] ']"),
            Wheel.x = as.numeric(Wheel.x),
            Wheel.y = as.numeric(Wheel.y),
-           Wheel.x = case_when( Wheel.name == "GW1" ~ (Wheel.x + 256),
-                              Wheel.name == "practice" ~ (Wheel.x + 256),
-                              Wheel.name == "GW2" ~ (Wheel.x - 256)),
+           Wheel.x = case_when( Wheel.name == "GW1" ~ (Wheel.x + 270),
+                              Wheel.name == "practice" ~ (Wheel.x + 270),
+                              Wheel.name == "GW2" ~ (Wheel.x - 270)),
            Wheel.rt = as.numeric(Wheel.rt),
            Wheel.rt = round(Wheel.rt*1000,1),
            Wheel.rt = replace_na(Wheel.rt,19999),
@@ -112,7 +115,7 @@ data <- rbind(Pct,Gw1, Gw2)%>%
   
   
   #write.csv2(dataset, file = "03.original_data/Pt_.csv")
-  save(data,file= file.path("04.data",paste0("dataset_",dataset_name,".rds")))
+  save(data,file= file.path("data",paste0(dataset_name,".rds")))
   
   
 } #end function  

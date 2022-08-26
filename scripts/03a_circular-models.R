@@ -4,7 +4,7 @@
 #  Programmer:  QUETTIER THOMAS from previous GAMBAROTA scripts (https://github.com/shared-research/face-mask-gew.git) 
 #  Date:        0382022
 #  Description: Generate the dataset from Gorilla (https://app.gorilla.sc/) 
-#  Experiment CPO_online_AMIM1
+#  Experiment CPO_pilot_AMIM1
 #
 #  Update:      23/08/2022
 ###########################################################################
@@ -111,9 +111,9 @@ fit_ri_neu <- brm(form_ri_neu,
                   data = dat_neutral,
                   prior = prior_von_mises_neu,
                   family = von_mises(link = "tan_half", link_kappa = "log"),
-                  chains = chains,
+                  chains = 4,
                   cores = cores,
-                  iter = iter,
+                  iter = 10000,
                   sample_prior = samp_prior,
                   file = file.path("models","theta",paste0(datasetname,"_fit_ri_neu.rds")),
                   save_pars = save_pars(all = TRUE),

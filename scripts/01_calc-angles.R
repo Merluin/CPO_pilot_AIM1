@@ -4,7 +4,7 @@
 #  Programmer:  QUETTIER THOMAS from previous GAMBAROTA scripts (https://github.com/shared-research/face-mask-gew.git) 
 #  Date:        0382022
 #  Description: Generate the dataset from Gorilla (https://app.gorilla.sc/) 
-#  Experiment CPO_online_AMIM1
+#  Experiment CPO_pilot_AMIM1
 #
 #  Update:      23/08/2022
 ###########################################################################
@@ -22,7 +22,7 @@ devtools::load_all()
 # Data --------------------------------------------------------------------
 
 datasetname<-"dataset"
-dataset_online(datasetname)
+dataset_pilot(datasetname)
 load(file.path("data", paste0(datasetname,".rds")))
 
 # Coordinates -------------------------------------------------------------
